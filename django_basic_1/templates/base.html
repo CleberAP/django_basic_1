@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+{% load template_filters %}
+
+{% include "html_header.html" %}
+
+<body> <!-- class="container-fluid mynavegation-area" -->
+	<!-- Clear data_session -->
+	<!-- {{ request.session.clear_expired }} -->
+	{% include "menu.html" %}
+
+    <div class="container-mycontents">
+		
+		{% include "menu_left.html" %}
+		
+		<section class="main-area-mycontents">
+			<div>
+
+				{{ redirect_to_login_immediately }}
+
+				{% if messages %}
+					{% for message in messages %}
+						<div class="message {{ message.tags }}">
+							{% if message.tags == 'error' %}
+							<div class="alert alert-danger alert-dismissible">
+							{% else %}
+							<div class="alert alert-{{ message.tags }} alert-dismissible">
+							{% endif %}
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								{% autoescape off %}
+									{{ message|linebreaks|escape }}
+								{% endautoescape %}
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+
+				{% block content %}{% endblock %}
+
+				{% block pagination %}{% endblock %}
+
+			</div>
+		</section>
+
+	</div>
+	{% include "html_footer.html" %}
+</body>
+
+
+</html>

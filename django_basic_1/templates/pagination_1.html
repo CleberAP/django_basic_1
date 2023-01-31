@@ -1,0 +1,47 @@
+{% load static %}
+{% block pagination %}
+	{% if page_obj.has_other_pages %}
+		<div class="text-center">
+			<ul class="pagination pagination-lg text-center">
+				{% if page_obj.has_previous %}
+					<li><a class="btn" href="?page={{ page_obj.previous_page_number }}{%if request.GET.searched %}&searched={{ request.GET.searched }}{% endif %}{%if request.GET.searched2 %}&searched2={{ request.GET.searched2 }}{% endif %}" style="font-size: 80%;">&laquo;</a></li>
+	            {% else %}
+	                <li class="disabled"><span>&laquo;</span></li>
+				{% endif %}
+
+				{% if start_index %}
+				    <li><a class="btn" href="?page={{ start_index }}{%if request.GET.searched %}&searched={{ request.GET.searched }}{% endif %}{%if request.GET.searched2 %}&searched2={{ request.GET.searched2 }}{% endif %}" style="font-size: 80%;"><span style="color: blue; font-weight: bold;">{{ start_index }}</span></a></li>
+				    <li class="disabled"><span>&mldr;</span></li>
+				{% endif %}
+
+				
+				{% for i in page_range %}
+	                {% if page_obj.number == i %}
+	                    <!--<li class="active"><u><span>{{ i }} <span class="sr-only">(current)</span></span></u></li>-->
+	                    <li class="btn"><u><b><span>{{ i }}</span></b></u></li>
+	                {% else %}
+	                    <li><a class="btn" href="?page={{ i }}
+	                        {%if request.GET.searched %}&searched={{ request.GET.searched }}{% endif %}{%if request.GET.searched2 %}&searched2={{ request.GET.searched2 }}{% endif %}" style="font-size: 80%;">{{ i }}</a></li>
+	                {% endif %}
+	            {% endfor %}
+	            
+				{% if page_obj.has_next %}
+					
+				{% endif %}
+
+				
+				{% if page_obj.has_next %}
+	                {% if end_index %}
+	                    <li class="disabled"><span>&mldr;</span></li>
+	                    <li><a class="btn" href="?page={{ end_index }}{%if request.GET.searched %}&searched={{ request.GET.searched }}{% endif %}{%if request.GET.searched2 %}&searched2={{ request.GET.searched2 }}{% endif %}" style="font-size: 80%;"><span style="color: red; font-weight: bold;">{{ end_index }}</span></a></li>
+	                {% endif %}
+	                <li><a class="btn" href="?page={{ page_obj.next_page_number }}{%if request.GET.searched %}&searched={{ request.GET.searched }}{% endif %}{%if request.GET.searched2 %}&searched2={{ request.GET.searched2 }}{% endif %}" style="font-size: 80%;">&raquo;</a></li>
+	            {% else %}
+	                <li class="btn disabled"><span>&raquo;</span></li>
+	            {% endif %}
+			</ul>
+		</div>
+
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,7 @@
+SECRET_KEY:::django-insecure-%wfq=5$%+x6cz8irm_jz#dvt_j9q&q^+ngygs@v9bdvkxyjcn_
+ENCRYPT_KEY:::zjI-hvE2P7nr1pQbtpr_MZjw-7N-llYoZYANP4CFLTQ=
+NAME:::projeto_django_basic_1
+USER:::postgres
+PASSWORD:::moUse021005
+HOST:::localhost
+PORT:::5432
