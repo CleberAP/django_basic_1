@@ -1,0 +1,7 @@
+SECRET_KEY:::cripted_key
+ENCRYPT_KEY:::cripted_key
+NAME:::database_postgresql_name
+USER:::database_postgresql_user
+PASSWORD:::database_postgresql_password
+HOST:::database_postgresql_host
+PORT:::database_postgresql_port
