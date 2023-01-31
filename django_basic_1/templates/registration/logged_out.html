@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-<div>
-	<p class="page-title">Você está desconectado!</p>
-	<a class="font-09" href="{% url 'login' %}?next={% url 'main:home' %}">Clique aqui para conectar novamente.</a>
-</div>
-{% endblock %}
